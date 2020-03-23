@@ -16,9 +16,9 @@ parser.add_argument('--authority', '-a', help='Code for the authority')
 parser.add_argument('--number', '-n', help='Running number')
 
 parser.add_argument('--birth_date', '-b', help='The date of birth. Defaults to random over the age of 18. Is exclusive to the birth_year, birth_month and birth_day')
-parser.add_argument('--birth_year', '-y', help='The year of birth.')
-parser.add_argument('--birth_month', '-m', help='The month of birth.')
-parser.add_argument('--birth_day', '-d', help='The day of birth.')
+parser.add_argument('--birth_year', '-y', help='The year of birth.', type=int)
+parser.add_argument('--birth_month', '-m', help='The month of birth.', type=int)
+parser.add_argument('--birth_day', '-d', help='The day of birth.', type=int)
 
 parser.add_argument('--expiry', '-e', help='Date of expiry. Defaults to random within 5 Years')
 
@@ -149,7 +149,8 @@ if birth_date is not None:
 		print('birth_date given, birth_date is "{}" '.format(birth_date_ts))
 
 else:
-	birth_date_ts = Timestamp(birth_year, birth_month, birth_day)
+	print(birth_year, birth_month, birth_day)
+	birth_date_ts = Timestamp(year=birth_year, month=birth_month, day=birth_day)
 
 	if verbosity > 1:
 		print('Generated birth_date is "{}" '.format(birth_date_ts))
