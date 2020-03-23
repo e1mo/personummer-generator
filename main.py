@@ -149,7 +149,6 @@ if birth_date is not None:
 		print('birth_date given, birth_date is "{}" '.format(birth_date_ts))
 
 else:
-	print(birth_year, birth_month, birth_day)
 	birth_date_ts = Timestamp(year=birth_year, month=birth_month, day=birth_day)
 
 	if verbosity > 1:
